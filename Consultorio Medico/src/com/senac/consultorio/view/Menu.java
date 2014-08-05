@@ -8,7 +8,7 @@ public class Menu {
 	}
 	
 	public static int exibirMenu() {
-		String menu = "Menu\n"
+		String menu = "\n"
 				+ "1 - Cadastrar Paciente\n"
 				+ "2 - Cadastrar Medicamento\n"
 				+ "3 - Agendamento de Consulta\n"

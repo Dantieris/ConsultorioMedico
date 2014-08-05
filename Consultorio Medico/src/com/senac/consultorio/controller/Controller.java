@@ -3,6 +3,7 @@ package com.senac.consultorio.controller;
 import java.util.ArrayList;
 
 import com.senac.consultorio.model.Paciente;
+import com.senac.consultorio.view.Console;
 import com.senac.consultorio.view.Menu;
 
 public class Controller {
@@ -10,12 +11,15 @@ public class Controller {
 	private ArrayList<Paciente> pacientes;
 	
 	public Controller() {
-		pacientes = new ArrayList<Paciente>();
+		pacientes 	= new ArrayList<Paciente>();
 	}
 	
 	public static void main(String[] args) {
+		Controller controller = new Controller();
+		
+		Console.exibirSaudacao();
+		
 		while(true) {
-			Controller controller = new Controller();
 			controller.menu();
 		}
 	}
@@ -24,12 +28,12 @@ public class Controller {
 		int op = Menu.exibirMenu();
 		
 		switch(op) {
-		case 1 : exibirCadastrarPaciente();
-		case 2 :
-		case 3 :
-		case 4 :
-		case 5 :
-		case 6 : System.exit(0);
+		case 1 : exibirCadastrarPaciente(); break;
+		case 2 : break;
+		case 3 : break;
+		case 4 : break;
+		case 5 : break;
+		case 6 : Console.exibirEncerramento(); System.exit(0);
 		}
 	}
 	
