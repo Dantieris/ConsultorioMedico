@@ -3,10 +3,8 @@ package com.senac.consultorio.view;
 import java.util.Scanner;
 
 public class Menu {
-	private static Scanner scanner;
-	
-	public Menu() {
-		scanner = new Scanner(System.in);
+	protected static Scanner scanner() {
+		return new Scanner(System.in);
 	}
 	
 	public static int exibirMenu() {
@@ -20,6 +18,36 @@ public class Menu {
 		
 		System.out.println(menu);
 		
-		return scanner.nextInt();
+		return scanner().nextInt();
+	}
+	
+	public static void exibirCadastrarPaciente() {
+		String menu = "Opção Cadastro de Pacientes";
+		System.out.println(menu);
+	}
+	
+	public static String receberNome() {
+		System.out.println("Digite o nome: ");
+		return scanner().nextLine();
+	}
+	
+	public static int receberIdade() {
+		System.out.println("Digite a idade: ");
+		return scanner().nextInt();
+	}
+	
+	public static String receberTelefone() {
+		System.out.println("Digite o telefone: ");
+		return scanner().nextLine();
+	}
+	
+	public static String receberEndereco() {
+		System.out.println("Digite o endereço: ");
+		return scanner().nextLine();
+	}
+	
+	public static long receberCPF() {
+		System.out.println("Digite o CPF: ");
+		return scanner().nextLong();
 	}
 }

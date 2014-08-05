@@ -5,8 +5,34 @@ public class Paciente {
 	private int idade;
 	private String telefone;
 	private String endereco;
-	private int cpf;
+	private long cpf;
 	
+	/**
+	 * Construtor vazio.
+	 */
+	public Paciente() {}
+	
+	/**
+	 * Construtor com parametros.
+	 * @param nome
+	 * @param idade
+	 * @param telefone
+	 * @param endereco
+	 * @param cpf
+	 */
+	public Paciente(
+			String nome, 
+			int idade, 
+			String telefone, 
+			String endereco, 
+			long cpf) 
+	{
+		this.nome = nome;
+		this.idade = idade;
+		this.telefone = telefone;
+		this.endereco = endereco;
+		this.cpf = cpf;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -31,10 +57,10 @@ public class Paciente {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	public int getCpf() {
+	public long getCpf() {
 		return cpf;
 	}
-	public void setCpf(int cpf) {
+	public void setCpf(long cpf) {
 		this.cpf = cpf;
 	}
 }
