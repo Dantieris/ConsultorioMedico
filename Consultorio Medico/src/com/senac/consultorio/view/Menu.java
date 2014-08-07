@@ -50,4 +50,33 @@ public class Menu {
 		System.out.println("Digite o CPF: ");
 		return scanner().nextLong();
 	}
+	
+	public static void exibirCadastradoSucesso() {
+		System.out.println("Cadastro Realizado Com Sucesso!");
+	}
+	
+	public static void exibirCadastroMedicamento() {
+		String menu = "Opção Cadastro de Medicamentos";
+		System.out.println(menu);
+	}
+	
+	public static String receberCodigoBarra() {
+		System.out.println("Digite o código de barra: ");
+		return scanner().nextLine();
+	}
+	
+	public static int receberTipo() {
+		System.out.println("Escolha o tipo \n"
+				+ "\n1 - Oral"
+				+ "\n2 - Intra Venoso"
+				+ "\n3 - Capsula"
+				+ "\n4 - Intra Moscular");
+		return scanner().nextInt();
+	}
+	
+	public static String receberSubstancia() {
+		System.out.println("Digite a substância: ");
+		return scanner().nextLine();
+	}
+
 }

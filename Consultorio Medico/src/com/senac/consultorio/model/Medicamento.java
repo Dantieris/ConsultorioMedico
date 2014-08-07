@@ -1,15 +1,22 @@
 package com.senac.consultorio.model;
 
 public class Medicamento {
-	private int codigoBarra;
+	private String codigoBarra;
 	private String nome;
-	private String tipo;
+	private Tipo tipo;
 	private String substancia;
 	
-	public int getCodigoBarra() {
+	public Medicamento(String nome, String codigoBarra,
+			Tipo tipo, String substancia) {
+		this.nome = nome;
+		this.codigoBarra = codigoBarra;
+		this.tipo = tipo;
+		this.substancia = substancia;
+	}
+	public String getCodigoBarra() {
 		return codigoBarra;
 	}
-	public void setCodigoBarra(int codigoBarra) {
+	public void setCodigoBarra(String codigoBarra) {
 		this.codigoBarra = codigoBarra;
 	}
 	public String getNome() {
@@ -18,10 +25,10 @@ public class Medicamento {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getTipo() {
+	public Tipo getTipo() {
 		return tipo;
 	}
-	public void setTipo(String tipo) {
+	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
 	}
 	public String getSubstancia() {
