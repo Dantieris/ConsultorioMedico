@@ -90,10 +90,11 @@ public class Controller {
 		medicamentos.add(medicamento);
 	}
 	
-	public void exibirAgendamentoConsulta() {
+	private void exibirAgendamentoConsulta() {
 		Menu.exibirAgendamentoConsulta();
 		
 		Consulta consulta = new Consulta(
+				localizarPaciente(),
 				Menu.receberNumero(),
 				Menu.receberHorario(),
 				Menu.receberData(),
@@ -107,12 +108,34 @@ public class Controller {
 		consultas.add(consulta);
 	}
 
-	public void exibirRegistrarConsulta() {
+	private void exibirRegistrarConsulta() {
 		Menu.exibirRegistrarConsulta();
 	}
 	
-	public void exibirHistorico() {
+	private void exibirHistorico() {
 		Menu.exibirHistorico();
 	}
 
+	private Paciente localizarPaciente() {
+		Menu.exibirLocalizarPaciente();
+		
+		Paciente paciente;
+		do {
+			paciente = pacientes.get(buscarPaciente());
+		} while(paciente == null);
+		
+		return paciente;
+	}
+	
+	private int buscarPaciente() {
+		StringBuffer ms = new StringBuffer();
+		int cont = 1;
+		
+		for (Paciente paciente : pacientes) {
+			ms.append(cont++ +" - " + paciente.getNome());
+		}
+		
+		Menu.exibirMensagem(ms.toString());
+		return Menu.receberNumero();
+	}
 }

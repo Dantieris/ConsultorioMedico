@@ -63,4 +63,9 @@ public class Paciente {
 	public void setCpf(long cpf) {
 		this.cpf = cpf;
 	}
+	
+	@Override
+	public String toString() {
+		return getNome();
+	}
 }

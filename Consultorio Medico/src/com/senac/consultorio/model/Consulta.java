@@ -10,8 +10,9 @@ public class Consulta {
 	
 	public Consulta() {	}
 	
-	public Consulta(int numero, int horario, int data,
+	public Consulta(Paciente paciente, int numero, int horario, int data,
 			String observacao) {
+		this.paciente 	= paciente;
 		this.numero 	= numero;
 		this.horario 	= horario;
 		this.data 		= data;
