@@ -78,5 +78,40 @@ public class Menu {
 		System.out.println("Digite a substância: ");
 		return scanner().nextLine();
 	}
+	
+	public static void exibirAgendamentoConsulta() {
+		String menu = "Opção Agendamento de Consultas";
+		System.out.println(menu);
+	}
+	
+	public static int receberNumero() {
+		System.out.println("Digite o número: ");
+		return scanner().nextInt();
+	}
+	
+	public static int receberHorario() {
+		System.out.println("Digite o horário: ");
+		return scanner().nextInt();
+	}
+	
+	public static int receberData() {
+		System.out.println("Digite a data: ");
+		return scanner().nextInt();
+	}
+	
+	public static String receberObservacao() {
+		System.out.println("Digite a observação: ");
+		return scanner().nextLine();
+	}
+	
+	public static void exibirRegistrarConsulta() {
+		String menu = "Opção Registrar Consulta";
+		System.out.println(menu);
+	}
+	
+	public static void exibirHistorico() {
+		String menu = "Opção Histórico";
+		System.out.println(menu);
+	}
 
 }

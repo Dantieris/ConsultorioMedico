@@ -8,6 +8,15 @@ public class Consulta {
 	private int data;
 	private String observacao;
 	
+	public Consulta() {	}
+	
+	public Consulta(int numero, int horario, int data,
+			String observacao) {
+		this.numero 	= numero;
+		this.horario 	= horario;
+		this.data 		= data;
+		this.observacao = observacao;
+	}
 	public Paciente getPaciente() {
 		return paciente;
 	}
