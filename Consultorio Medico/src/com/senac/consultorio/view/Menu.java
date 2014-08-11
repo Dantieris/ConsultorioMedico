@@ -1,11 +1,6 @@
 package com.senac.consultorio.view;
 
-import java.util.ArrayList;
 import java.util.Scanner;
-
-import javax.jws.Oneway;
-
-import com.senac.consultorio.model.Paciente;
 
 public class Menu {
 	protected static Scanner scanner() {
@@ -127,4 +122,20 @@ public class Menu {
 	public static void exibirMensagem(String ms) {
 		System.out.println(ms);
 	}
+	
+	public static int receberNumeroPaciente() {
+		System.out.println("Digite o número do paciente: ");
+		return scanner().nextInt();
+	}
+
+	public static void exibirLocalizarMedicamento() {
+		String menu = "Localizar Medicamento";
+		System.out.println(menu);
+	}
+
+	public static int receberNumeroMedicamento() {
+		System.out.println("Digite o número do medicamento: ");
+		return scanner().nextInt();
+	}
+	
 }

@@ -10,13 +10,11 @@ public class Consulta {
 	
 	public Consulta() {	}
 	
-	public Consulta(Paciente paciente, int numero, int horario, int data,
-			String observacao) {
-		this.paciente 	= paciente;
-		this.numero 	= numero;
-		this.horario 	= horario;
-		this.data 		= data;
-		this.observacao = observacao;
+	public Consulta(Paciente paciente, int numero, int horario, int data) {
+		this.paciente 		= paciente;
+		this.numero 		= numero;
+		this.horario 		= horario;
+		this.data 			= data;
 	}
 	public Paciente getPaciente() {
 		return paciente;

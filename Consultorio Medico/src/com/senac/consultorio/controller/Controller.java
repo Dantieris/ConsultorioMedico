@@ -97,8 +97,7 @@ public class Controller {
 				localizarPaciente(),
 				Menu.receberNumero(),
 				Menu.receberHorario(),
-				Menu.receberData(),
-				Menu.receberObservacao());
+				Menu.receberData());
 		
 		addConsulta(consulta);
 		Menu.exibirCadastradoSucesso();
@@ -136,6 +135,28 @@ public class Controller {
 		}
 		
 		Menu.exibirMensagem(ms.toString());
-		return Menu.receberNumero();
+		return (1 - Menu.receberNumeroPaciente());
+	}
+	
+	private Medicamento localizarMedicamento() {
+		Menu.exibirLocalizarMedicamento();
+		
+		Medicamento medicamento;
+		do {
+			medicamento = medicamentos.get(buscarMedicamento());
+		} while(medicamento == null);
+		
+		return medicamento;
+	}
+
+	private int buscarMedicamento() {
+		StringBuffer ms = new StringBuffer();
+		int cont = 1;
+		
+		for (Medicamento medicamento : medicamentos) {
+			ms.append(cont++ + " - " + medicamento.getNome());
+		}
+		Menu.exibirMensagem(ms.toString());
+		return (1 - Menu.receberNumeroMedicamento());
 	}
 }
