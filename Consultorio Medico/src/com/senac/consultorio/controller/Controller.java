@@ -13,12 +13,12 @@ public class Controller {
 	
 	private ArrayList<Paciente> pacientes;
 	private ArrayList<Medicamento> medicamentos;
-	private ArrayList<Consulta> consultas;
+	private ArrayList<Consulta> agendaConsultas;
 	
 	public Controller() {
 		pacientes 		= new ArrayList<Paciente>();
 		medicamentos	= new ArrayList<Medicamento>();
-		consultas 		= new ArrayList<Consulta>();
+		agendaConsultas = new ArrayList<Consulta>();
 	}
 	
 	public static void main(String[] args) {
@@ -104,11 +104,22 @@ public class Controller {
 	}
 	
 	private void addConsulta(Consulta consulta) {
-		consultas.add(consulta);
+		agendaConsultas.add(consulta);
 	}
 
 	private void exibirRegistrarConsulta() {
 		Menu.exibirRegistrarConsulta();
+		
+		Consulta consulta = localizarConsulta();
+		
+		consulta.setMedicamento(localizarMedicamento());
+		consulta.setObservacao(Menu.receberObservacao());
+		
+		if (Menu.receberFinalizarConsulta() == 1) {
+			Menu.exibirConsultaRegistrada();
+		} else {
+			Menu.exibirConsultaNaoRegistrada();
+		}
 	}
 	
 	private void exibirHistorico() {
@@ -158,5 +169,27 @@ public class Controller {
 		}
 		Menu.exibirMensagem(ms.toString());
 		return (1 - Menu.receberNumeroMedicamento());
+	}
+	
+	private Consulta localizarConsulta() {
+		Menu.exibirLocalizarConsulta();
+		
+		Consulta consulta;
+		do {
+			consulta = agendaConsultas.get(buscarConsulta());
+		} while(consulta == null);
+		
+		return consulta;
+	}
+
+	private int buscarConsulta() {
+		StringBuffer ms = new StringBuffer();
+		int cont = 1;
+		
+		for (Consulta consulta : agendaConsultas) {
+			ms.append(cont++ + " - " + consulta.getData() + " - " + consulta.getHorario());
+		}
+		Menu.exibirMensagem(ms.toString());
+		return (1 - Menu.receberNumeroConsulta());
 	}
 }

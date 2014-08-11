@@ -137,5 +137,31 @@ public class Menu {
 		System.out.println("Digite o número do medicamento: ");
 		return scanner().nextInt();
 	}
+
+	public static void exibirLocalizarConsulta() {
+		String menu = "Localizar Consultas Agendadas";
+		System.out.println(menu);
+	}
+
+	public static int receberNumeroConsulta() {
+		System.out.println("Digite o número da consulta: ");
+		return scanner().nextInt();
+	}
+	
+	public static int receberFinalizarConsulta() {
+		System.out.println("Finalizar a consulta? \n"
+				+ "\n1 - Sim"
+				+ "\n2 - Não");
+		
+		return scanner().nextInt();
+	}
+
+	public static void exibirConsultaRegistrada() {
+		System.out.println("Consulta Finalizada com Sucesso!");
+	}
+	
+	public static void exibirConsultaNaoRegistrada() {
+		System.out.println("Registro de Consulta Abortado!");
+	}
 	
 }
