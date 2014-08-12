@@ -10,9 +10,8 @@ public class Consulta {
 	
 	public Consulta() {	}
 	
-	public Consulta(Paciente paciente, int numero, int horario, int data) {
-		this.paciente 		= paciente;
-		this.numero 		= numero;
+	public Consulta(Paciente paciente,  int horario, int data) {
+		this.paciente 		= paciente;		
 		this.horario 		= horario;
 		this.data 			= data;
 	}
@@ -51,5 +50,9 @@ public class Consulta {
 	}
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
+	}
+	
+	public String toString(){
+		return "Paciente: " + this.paciente.getNome() + " Realizada em: " + this.data + " Horario: "+this.horario + " Obs: "+this.observacao;
 	}
 }

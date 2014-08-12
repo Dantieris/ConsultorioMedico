@@ -134,7 +134,7 @@ public class Menu {
 	}
 
 	public static int receberNumeroMedicamento() {
-		System.out.println("Digite o número do medicamento: ");
+		System.out.println("Digite o número do medicamento OU 0(zero) para nenhum: ");
 		return scanner().nextInt();
 	}
 

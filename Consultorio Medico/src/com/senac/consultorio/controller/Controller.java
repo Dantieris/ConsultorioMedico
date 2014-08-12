@@ -15,10 +15,13 @@ public class Controller {
 	private ArrayList<Medicamento> medicamentos;
 	private ArrayList<Consulta> agendaConsultas;
 	
+	private ArrayList<Consulta> registroConsultas;
+	
 	public Controller() {
 		pacientes 		= new ArrayList<Paciente>();
 		medicamentos	= new ArrayList<Medicamento>();
 		agendaConsultas = new ArrayList<Consulta>();
+		this.registroConsultas = new ArrayList<Consulta>();
 	}
 	
 	public static void main(String[] args) {
@@ -94,8 +97,7 @@ public class Controller {
 		Menu.exibirAgendamentoConsulta();
 		
 		Consulta consulta = new Consulta(
-				localizarPaciente(),
-				Menu.receberNumero(),
+				localizarPaciente(),				
 				Menu.receberHorario(),
 				Menu.receberData());
 		
@@ -117,13 +119,19 @@ public class Controller {
 		
 		if (Menu.receberFinalizarConsulta() == 1) {
 			Menu.exibirConsultaRegistrada();
+			this.registroConsultas.add(consulta);
+			
 		} else {
 			Menu.exibirConsultaNaoRegistrada();
 		}
 	}
 	
 	private void exibirHistorico() {
-		Menu.exibirHistorico();
+		//Menu.exibirHistorico();
+		for(Consulta c : this.registroConsultas){
+			System.out.println(c.toString());
+		}
+		
 	}
 
 	private Paciente localizarPaciente() {
@@ -142,11 +150,11 @@ public class Controller {
 		int cont = 1;
 		
 		for (Paciente paciente : pacientes) {
-			ms.append(cont++ +" - " + paciente.getNome());
+			ms.append(cont++ +" - " + paciente.getNome() + "\n");
 		}
 		
 		Menu.exibirMensagem(ms.toString());
-		return (1 - Menu.receberNumeroPaciente());
+		return (Menu.receberNumeroPaciente() - 1);
 	}
 	
 	private Medicamento localizarMedicamento() {
@@ -154,7 +162,13 @@ public class Controller {
 		
 		Medicamento medicamento;
 		do {
-			medicamento = medicamentos.get(buscarMedicamento());
+			int idMedicamento = buscarMedicamento();
+			if(idMedicamento == 0){
+				medicamento = null;
+				break;
+			}else{			
+				medicamento = medicamentos.get(idMedicamento);
+			}
 		} while(medicamento == null);
 		
 		return medicamento;
@@ -165,10 +179,15 @@ public class Controller {
 		int cont = 1;
 		
 		for (Medicamento medicamento : medicamentos) {
-			ms.append(cont++ + " - " + medicamento.getNome());
+			ms.append(cont++ + " - " + medicamento.getNome() + "\n");
 		}
 		Menu.exibirMensagem(ms.toString());
-		return (1 - Menu.receberNumeroMedicamento());
+		int retorno = Menu.receberNumeroMedicamento();
+		if(retorno == 0){
+			return 0;
+		}else{
+		return (retorno - 1);
+		}
 	}
 	
 	private Consulta localizarConsulta() {
@@ -187,9 +206,9 @@ public class Controller {
 		int cont = 1;
 		
 		for (Consulta consulta : agendaConsultas) {
-			ms.append(cont++ + " - " + consulta.getData() + " - " + consulta.getHorario());
+			ms.append(cont++ + " - Data: " + consulta.getData() + " - Hora: " + consulta.getHorario() + "\n");
 		}
 		Menu.exibirMensagem(ms.toString());
-		return (1 - Menu.receberNumeroConsulta());
+		return (Menu.receberNumeroConsulta() - 1);
 	}
 }
