@@ -57,27 +57,64 @@ public class Controller {
 		int op = Menu.exibirMenu();
 		
 		switch(op) {
-		case 1 : 
-			exibirCadastrarPaciente(); 
-			break;
-		case 2 : 
-			exibirCadastrarMedicamento(); 
-			break;
-		case 3 : 
-			exibirAgendamentoConsulta(); 
-			break;
-		case 4 : 
-			exibirRegistrarConsulta(); 
-			break;
-		case 5 : 
-			exibirHistorico(); 
-			break;
-		case 6 : 
-			Console.exibirEncerramento(); 
-			return 1;
-		default : Menu.exibirMensagem("Opção Inválida!");
+			case 1 : 
+				exibirCadastrarPaciente(); 
+				break;
+			case 2 : 
+				exibirCadastrarMedicamento(); 
+				break;
+			case 3 : 
+				exibirAgendamentoConsulta(); 
+				break;
+			case 4 : 
+				exibirRegistrarConsulta(); 
+				break;
+			case 5 : 
+				exibirHistorico(); 
+				break;
+			case 6 : 
+				exibirPacientes();
+				break;
+			case 7 : 
+				exibirMedicamentos();
+				break;
+			case 8 :
+				Console.exibirEncerramento(); 
+				return 1;
+			default : Menu.exibirMensagem("Opção Inválida!");
 		}
 		return 0;
+	}
+	
+	private void exibirPacientes() {
+		for (Paciente paciente : pacientes) {
+			Menu.exibirMensagem(
+					"Nome: " + 
+					paciente.getNome() + 
+					" - Idade: " + 
+					paciente.getIdade() + 
+					" anos - CPF: " + 
+					paciente.getCpf() + 
+					" - End.:" + 
+					paciente.getEndereco() + 
+					" - Fone: " + 
+					paciente.getTelefone());
+		}
+	}
+	
+	private void exibirMedicamentos() {
+		for (Medicamento medicamento : medicamentos) {
+			Menu.exibirMensagem(
+					"Nome: " +
+					medicamento.getNome() + 
+					" - Tipo: " + 
+					medicamento.getTipo().getDescricao() + 
+					" - Substância: " + 
+					medicamento.getSubstancia() + 
+					" - Código de Barra: " + 
+					medicamento.getCodigoBarra()
+					);
+		}
 	}
 	
 	private void exibirCadastrarPaciente() {

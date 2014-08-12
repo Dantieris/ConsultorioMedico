@@ -14,7 +14,9 @@ public class Menu {
 				+ "3 - Agendamento de Consulta\n"
 				+ "4 - Registrar Consulta\n"
 				+ "5 - Histórico\n"
-				+ "6 - Sair\n";
+				+ "6 - Listar Pacientes\n"
+				+ "7 - Listar Medicamentos\n"
+				+ "8 - Sair\n";
 		
 		System.out.println(menu);
 		
