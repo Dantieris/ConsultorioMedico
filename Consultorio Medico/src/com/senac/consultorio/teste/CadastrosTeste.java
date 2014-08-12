@@ -46,10 +46,10 @@ public class CadastrosTeste {
 	public List<Consulta> consultasAgendadas(List<Paciente> pacientes) {
 		List<Consulta> consultas = new ArrayList<Consulta>();
 		
-		Consulta consulta1345 = new Consulta(pacientes.get(0), 1245, 13112014);
-		Consulta consulta1530 = new Consulta(pacientes.get(1), 1530, 13112014);
-		Consulta consulta1000 = new Consulta(pacientes.get(2), 1000, 12112014);
-		Consulta consulta1615 = new Consulta(pacientes.get(4), 1615, 12112014);
+		Consulta consulta1345 = new Consulta(pacientes.get(0), 13112014, 1245);
+		Consulta consulta1530 = new Consulta(pacientes.get(1), 13112014, 1530);
+		Consulta consulta1000 = new Consulta(pacientes.get(2), 12112014, 1000);
+		Consulta consulta1615 = new Consulta(pacientes.get(4), 12112014, 1615);
 		
 		consultas.add(consulta1615);
 		consultas.add(consulta1000);

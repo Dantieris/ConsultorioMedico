@@ -10,7 +10,7 @@ public class Consulta {
 	
 	public Consulta() {	}
 	
-	public Consulta(Paciente paciente,  int horario, int data) {
+	public Consulta(Paciente paciente, int data, int horario) {
 		this.paciente 		= paciente;		
 		this.horario 		= horario;
 		this.data 			= data;

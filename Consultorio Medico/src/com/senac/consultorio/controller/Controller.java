@@ -171,9 +171,9 @@ public class Controller {
 		Console.exibirAgendamentoConsulta();
 		
 		Consulta consulta = new Consulta(
-				localizarPaciente(),				
-				Console.receberHorario(),
-				Console.receberData());
+				localizarPaciente(),
+				Console.receberData(),
+				Console.receberHorario());
 		
 		addConsulta(consulta);
 		Console.exibirCadastradoSucesso();
@@ -193,13 +193,17 @@ public class Controller {
 		
 		if (Console.receberFinalizarConsulta() == 1) {
 			Console.exibirConsultaRegistrada();
-			this.registroConsultas.add(consulta);
-			
+			passandoConsultaParaHistorico(consulta);
 		} else {
 			Console.exibirConsultaNaoRegistrada();
 		}
 	}
 	
+	private void passandoConsultaParaHistorico(Consulta consulta) {
+		registroConsultas.add(consulta);
+		agendaConsultas.remove(consulta);
+	}
+
 	private void exibirHistorico() {
 		//Menu.exibirHistorico();
 		for(Consulta c : this.registroConsultas){
@@ -295,4 +299,5 @@ public class Controller {
 		Console.exibirMensagem(ms.toString());
 		return (Console.receberNumeroConsulta() - 1);
 	}
+
 }
