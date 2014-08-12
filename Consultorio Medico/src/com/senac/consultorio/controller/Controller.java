@@ -47,12 +47,13 @@ public class Controller {
 		
 		Console.exibirSaudacao();
 		
-		while(true) {
-			controller.menu();
+		int exit = 0;
+		while(exit == 0) {
+			exit = controller.menu();
 		}
 	}
 	
-	public void menu() {
+	public int menu() {
 		int op = Menu.exibirMenu();
 		
 		switch(op) {
@@ -73,10 +74,10 @@ public class Controller {
 			break;
 		case 6 : 
 			Console.exibirEncerramento(); 
-			System.exit(0);
-			break;
+			return 1;
 		default : Menu.exibirMensagem("Opção Inválida!");
 		}
+		return 0;
 	}
 	
 	private void exibirCadastrarPaciente() {

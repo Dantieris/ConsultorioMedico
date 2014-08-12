@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Menu {
 	protected static Scanner scanner() {
-		return new Scanner(System.in);
+		return new Scanner(System.in, "utf-8");
 	}
 	
 	public static int exibirMenu() {
