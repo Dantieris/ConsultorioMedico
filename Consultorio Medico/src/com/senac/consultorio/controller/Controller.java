@@ -205,9 +205,9 @@ public class Controller {
 	}
 
 	private void exibirHistorico() {
-		//Menu.exibirHistorico();
-		for(Consulta c : this.registroConsultas){
-			System.out.println(c.toString());
+		Console.exibirHistorico();
+		for(Consulta consulta : this.registroConsultas){
+			System.out.println(consulta.toString());
 		}
 		
 	}
