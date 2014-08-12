@@ -60,11 +60,6 @@ public class Menu {
 		System.out.println(menu);
 	}
 	
-	public static String receberCodigoBarra() {
-		System.out.println("Digite o código de barra: ");
-		return scanner().nextLine();
-	}
-	
 	public static int receberTipo() {
 		System.out.println("Escolha o tipo \n"
 				+ "\n1 - Oral"
@@ -82,11 +77,6 @@ public class Menu {
 	public static void exibirAgendamentoConsulta() {
 		String menu = "Opção Agendamento de Consultas";
 		System.out.println(menu);
-	}
-	
-	public static int receberNumero() {
-		System.out.println("Digite o número: ");
-		return scanner().nextInt();
 	}
 	
 	public static int receberHorario() {

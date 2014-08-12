@@ -103,7 +103,6 @@ public class Controller {
 		
 		Medicamento medicamento = new Medicamento(
 				Menu.receberNome(),
-				Menu.receberCodigoBarra(),
 				receberTipo(Menu.receberTipo()),
 				Menu.receberSubstancia()				
 				);

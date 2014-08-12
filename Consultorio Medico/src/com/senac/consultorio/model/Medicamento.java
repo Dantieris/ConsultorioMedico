@@ -1,18 +1,25 @@
 package com.senac.consultorio.model;
 
 public class Medicamento {
+	private static String proxCodigo;
+	private static int cont = 10201;
 	private String codigoBarra;
 	private String nome;
 	private Tipo tipo;
 	private String substancia;
 	
-	public Medicamento(String nome, String codigoBarra,
-			Tipo tipo, String substancia) {
+	public Medicamento(String nome, Tipo tipo, String substancia) {
+		calculaCodigoBarra();
 		this.nome = nome;
-		this.codigoBarra = codigoBarra;
+		this.codigoBarra = proxCodigo;
 		this.tipo = tipo;
 		this.substancia = substancia;
 	}
+	
+	private void calculaCodigoBarra() {
+		proxCodigo = "7891254" + cont++ + "1";
+	}
+
 	public String getCodigoBarra() {
 		return codigoBarra;
 	}

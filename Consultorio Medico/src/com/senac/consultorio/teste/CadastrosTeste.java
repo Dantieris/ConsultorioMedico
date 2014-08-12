@@ -30,10 +30,10 @@ public class CadastrosTeste {
 	public List<Medicamento> medicamentosCadastrados() {
 		List<Medicamento> medicamentos = new ArrayList<Medicamento>();
 		
-		Medicamento neosoro = new Medicamento("Neosoro", "12345698", Tipo.ORAL, "benzalconio + clor.sodio + nafazolina");
-		Medicamento salonpas = new Medicamento("Salonpas" , "12345692", Tipo.ORAL, "canfora+mentol+salicilato metila");
-		Medicamento buscopan = new Medicamento("Buscopan", "12345678", Tipo.CAPSULA, "escopolamina");
-		Medicamento rivotril = new Medicamento("Rivotril", "12345629", Tipo.CAPSULA, "clonazepam");
+		Medicamento neosoro = new Medicamento("Neosoro", Tipo.ORAL, "benzalconio + clor.sodio + nafazolina");
+		Medicamento salonpas = new Medicamento("Salonpas" , Tipo.ORAL, "canfora+mentol+salicilato metila");
+		Medicamento buscopan = new Medicamento("Buscopan", Tipo.CAPSULA, "escopolamina");
+		Medicamento rivotril = new Medicamento("Rivotril", Tipo.CAPSULA, "clonazepam");
 				
 		medicamentos.add(neosoro);
 		medicamentos.add(rivotril);
