@@ -8,7 +8,6 @@ import com.senac.consultorio.model.Paciente;
 import com.senac.consultorio.model.Tipo;
 import com.senac.consultorio.teste.CadastrosTeste;
 import com.senac.consultorio.view.Console;
-import com.senac.consultorio.view.Menu;
 
 public class Controller {
 	
@@ -54,7 +53,7 @@ public class Controller {
 	}
 	
 	public int menu() {
-		int op = Menu.exibirMenu();
+		int op = Console.exibirMenu();
 		
 		switch(op) {
 			case 1 : 
@@ -81,14 +80,14 @@ public class Controller {
 			case 8 :
 				Console.exibirEncerramento(); 
 				return 1;
-			default : Menu.exibirMensagem("Opção Inválida!");
+			default : Console.exibirMensagem("Opção Inválida!");
 		}
 		return 0;
 	}
 	
 	private void exibirPacientes() {
 		for (Paciente paciente : pacientes) {
-			Menu.exibirMensagem(
+			Console.exibirMensagem(
 					"Nome: " + 
 					paciente.getNome() + 
 					" - Idade: " + 
@@ -104,7 +103,7 @@ public class Controller {
 	
 	private void exibirMedicamentos() {
 		for (Medicamento medicamento : medicamentos) {
-			Menu.exibirMensagem(
+			Console.exibirMensagem(
 					"Nome: " +
 					medicamento.getNome() + 
 					" - Tipo: " + 
@@ -118,17 +117,17 @@ public class Controller {
 	}
 	
 	private void exibirCadastrarPaciente() {
-		Menu.exibirCadastrarPaciente();
+		Console.exibirCadastrarPaciente();
 		
 		Paciente paciente = new Paciente(
-				Menu.receberNome(),
-				Menu.receberIdade(),
-				Menu.receberTelefone(),
-				Menu.receberEndereco(),
-				Menu.receberCPF());
+				Console.receberNome(),
+				Console.receberIdade(),
+				Console.receberTelefone(),
+				Console.receberEndereco(),
+				Console.receberCPF());
 		
 		addPaciente(paciente);
-		Menu.exibirCadastradoSucesso();
+		Console.exibirCadastradoSucesso();
 	}
 	
 	private void addPaciente(Paciente paciente) {
@@ -136,16 +135,16 @@ public class Controller {
 	}
 	
 	private void exibirCadastrarMedicamento() {
-		Menu.exibirCadastroMedicamento();
+		Console.exibirCadastroMedicamento();
 		
 		Medicamento medicamento = new Medicamento(
-				Menu.receberNome(),
-				receberTipo(Menu.receberTipo()),
-				Menu.receberSubstancia()				
+				Console.receberNome(),
+				receberTipo(Console.receberTipo()),
+				Console.receberSubstancia()				
 				);
 		
 		addMedicamento(medicamento);
-		Menu.exibirCadastradoSucesso();
+		Console.exibirCadastradoSucesso();
 	}
 
 	private Tipo receberTipo(int tipo) {
@@ -159,7 +158,7 @@ public class Controller {
 		case 4 : 
 			return Tipo.INTRA_MUSCULAR;
 		default : 
-			Menu.exibirMensagem("Opção Inválida!");
+			Console.exibirMensagem("Opção Inválida!");
 		}
 		return null;
 	}
@@ -169,15 +168,15 @@ public class Controller {
 	}
 	
 	private void exibirAgendamentoConsulta() {
-		Menu.exibirAgendamentoConsulta();
+		Console.exibirAgendamentoConsulta();
 		
 		Consulta consulta = new Consulta(
 				localizarPaciente(),				
-				Menu.receberHorario(),
-				Menu.receberData());
+				Console.receberHorario(),
+				Console.receberData());
 		
 		addConsulta(consulta);
-		Menu.exibirCadastradoSucesso();
+		Console.exibirCadastradoSucesso();
 	}
 	
 	private void addConsulta(Consulta consulta) {
@@ -185,19 +184,19 @@ public class Controller {
 	}
 
 	private void exibirRegistrarConsulta() {
-		Menu.exibirRegistrarConsulta();
+		Console.exibirRegistrarConsulta();
 		
 		Consulta consulta = localizarConsulta();
 		
 		consulta.setMedicamento(localizarMedicamento());
-		consulta.setObservacao(Menu.receberObservacao());
+		consulta.setObservacao(Console.receberObservacao());
 		
-		if (Menu.receberFinalizarConsulta() == 1) {
-			Menu.exibirConsultaRegistrada();
+		if (Console.receberFinalizarConsulta() == 1) {
+			Console.exibirConsultaRegistrada();
 			this.registroConsultas.add(consulta);
 			
 		} else {
-			Menu.exibirConsultaNaoRegistrada();
+			Console.exibirConsultaNaoRegistrada();
 		}
 	}
 	
@@ -210,7 +209,7 @@ public class Controller {
 	}
 
 	private Paciente localizarPaciente() {
-		Menu.exibirLocalizarPaciente();
+		Console.exibirLocalizarPaciente();
 		
 		Paciente paciente;
 		do {
@@ -231,12 +230,12 @@ public class Controller {
 					"\n");
 		}
 		
-		Menu.exibirMensagem(ms.toString());
-		return (Menu.receberNumeroPaciente() - 1);
+		Console.exibirMensagem(ms.toString());
+		return (Console.receberNumeroPaciente() - 1);
 	}
 	
 	private Medicamento localizarMedicamento() {
-		Menu.exibirLocalizarMedicamento();
+		Console.exibirLocalizarMedicamento();
 		
 		Medicamento medicamento;
 		do {
@@ -262,8 +261,8 @@ public class Controller {
 					medicamento.getNome() + 
 					"\n");
 		}
-		Menu.exibirMensagem(ms.toString());
-		int retorno = Menu.receberNumeroMedicamento();
+		Console.exibirMensagem(ms.toString());
+		int retorno = Console.receberNumeroMedicamento();
 		if(retorno == 0){
 			return 0;
 		}else{
@@ -272,7 +271,7 @@ public class Controller {
 	}
 	
 	private Consulta localizarConsulta() {
-		Menu.exibirLocalizarConsulta();
+		Console.exibirLocalizarConsulta();
 		
 		Consulta consulta;
 		do {
@@ -293,7 +292,7 @@ public class Controller {
 					"\n");
 		}
 		
-		Menu.exibirMensagem(ms.toString());
-		return (Menu.receberNumeroConsulta() - 1);
+		Console.exibirMensagem(ms.toString());
+		return (Console.receberNumeroConsulta() - 1);
 	}
 }
